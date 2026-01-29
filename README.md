@@ -1,2 +1,3 @@
 # Frontend-Store
-Desarrollo frontend de un sitio web con html y css 
+Tienda frontend con html y css en desarrollo
+
