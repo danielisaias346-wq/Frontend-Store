@@ -1,0 +1,325 @@
+/*------------------------------------------------------------------------------*/
+:root {
+    --colorPrimario: #9C27B0;
+    --colorPrimarioOscuro: #89119D;
+    --colorSecundario: #f1d832;
+    --colorSecundarioOscuro: rgb(233, 287, 2);
+    --blanco: #fff;
+    --negro: #000;
+    --fuentePrincipal: 'Staatliches', cursive;
+}
+
+html {
+    font-size: 62.5%;
+    /*Reinicia el documento html a 1rem=10px*/
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+       overflow-x: hidden;/*quita el scroll de abajo de la pagina*/
+    margin: 0;
+    /*resetea el margin*/
+    font-size: 1.5rem;
+    background-color: var(--colorPrimario);
+    line-height: 1.5;
+
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a {
+    text-decoration: none;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+    /*centra el contenido*/
+
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    color: var(--colorSecundario);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4 rem;
+}
+
+/*------------------------------------------------------------------------------*/
+
+
+/*Header*/
+/*------------------------------------------------------------------------------*/
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    margin: 3rem 0;
+}
+
+/*------------------------------------------------------------------------------*/
+
+
+/*Navegador*/
+/*------------------------------------------------------------------------------*/
+.navegador {
+    display: flex;
+    justify-content: center;
+    background-color: var(--colorPrimarioOscuro);
+    padding: 1.8rem 0;
+    gap: 2rem; /* separacion entre elementos forma nueva*/
+
+}
+
+.navegador__link {
+    color: var(--blanco);
+    font-family: var(--fuentePrincipal);
+    font-size: 2.5rem;
+    font-weight: normal;
+
+}
+
+.navegador__link--activo,
+.navegador__link:hover {
+    color: var(--colorSecundario);
+   
+    
+}
+
+.navegador__link:hover,
+ header img:hover{
+    transition:  0.4s ease;/*efecto de zoom*/
+    transform: scale(1.2);
+   
+}
+/*------------------------------------------------------------------------------*/
+
+
+/*Footer*/
+/*------------------------------------------------------------------------------*/
+.footer {
+    background-color: var(--colorPrimarioOscuro);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+.footer__p {
+    color: var(--blanco);
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+}
+
+/*------------------------------------------------------------------------------*/
+
+
+/*Main productos*/
+/*------------------------------------------------------------------------------*/
+
+.main__titulo {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--colorSecundario);
+    font-family: var(--fuentePrincipal);
+    font-weight: normal;
+
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    /*para dividir las cajas de los productos*/
+    column-gap: 3.5rem;
+    row-gap: 3.5rem;
+}
+
+@media(min-width:768px ) {
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.producto{
+    background-color: var(--colorPrimarioOscuro);
+    padding: 2rem;
+    column-gap: 4rem;
+}
+
+.producto__nombre ,
+.producto__precio{
+text-align: center;
+font-family: var(--fuentePrincipal);
+margin: 1rem 0;
+line-height: 1.2;
+}
+.producto__precio{
+    color: #f1d832;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+.producto__nombre{
+    font-size: 3.4rem;
+}
+
+.producto_imagen{
+    width: 100%;
+}
+
+.producto:hover{
+     transition: transform 0.4s ease;
+     transform: scale(1.2);
+   
+}
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+/*Grafico camisas con grid row y grid column*/
+/*---------------------------------------------------------------------------------------------*/
+.grafico{
+background-repeat: no-repeat;
+background-size: cover;/*para que rellene el espacio disponible*/
+min-height: 30rem;
+}
+
+.grafico--camisas{
+background-image: url("../img/grafico1.jpg");
+background-repeat: no-repeat;
+grid-column: 1 /3;
+grid-row: 2 / 3;
+}
+
+.grafico--node{
+background-image: url("../img/grafico2.jpg");
+background-repeat: no-repeat;
+grid-column: 1 / 3;
+grid-row: 8 / 9;
+}
+@media(min-width: 760px) {
+  .grafico--camisas{
+    grid-column: 1/3;/*que de ancho este de la columna 1 al 3*/
+    grid-row: 2/3;/*en la fila 2 al 3*/
+  }
+  .grafico--node{
+    grid-column: 2 / 4;
+    grid-row: 5 / 6;
+  }
+}
+
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+/*Pagina sobre nosotros*/
+/*---------------------------------------------------------------------------------------------*/
+
+/*Para pantallas pequeñas como telefonos*/
+@media(min-width: 480px) {
+  .nosotros{
+    display: grid;
+    grid-template-rows: repeat(2, auto); /*el auto evita la separacion de texto e imagen*/
+}
+.nosotros__imagen{
+    grid-row: 1 / 2;/*Para q la imagen se posicione de la fila 1 al 2*/
+    grid-column: 1 / 2;
+    background-color: var(--colorPrimarioOscuro);
+    padding-top: 2rem ;
+    padding-bottom: 2rem;
+    width: 100%;
+}
+}
+
+/*consulta de medio para pantallas de a partir de 768px en adelante*/
+@media(min-width: 768px) {
+ .nosotros{
+display: grid;
+grid-template-columns: repeat(2,1fr);/*divide dos columnas del mismo tamaño*/
+column-gap: 2rem; /*separacion entre columnas*/
+}
+
+.nosotros__imagen{
+    grid-column: 2 /3;
+    background-color: var(--colorPrimarioOscuro);
+    padding: 2rem;
+    width: 100%;
+}
+
+}
+
+.nosotros__contenido{
+font-size: 2rem;
+font-family: var(--fuentePrincipal);
+font-weight: 600;
+}
+
+/*Seccion de informacion sobre nosotros*/
+.main__titulo{
+    background-color: var(--colorPrimarioOscuro);
+    width: 100%;
+}
+@media(min-width: 768px) {
+.grid__contenidos{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    column-gap: 2rem;
+}
+.grid__contenidos-elementos{
+    margin: 2rem;
+    text-align: center;
+    
+}
+.imagen_logo{
+   margin-left: 12rem;
+   
+}
+
+.titulo_logo{
+    font-family: var(--fuentePrincipal);
+    font-size: 4rem;
+    margin: 0;/*quita la separacion entre titulo y logo*/
+    color: var(--colorSecundario);
+    text-align: center;
+   
+}
+.informacion_logo{
+    font-family: var(--fuentePrincipal);
+    line-height:initial;
+    font-size: 2rem;
+    white-space: pre-line;
+}
+}
+
+
+
+
+/*---------------------------------------------------------------------------------------------*/
